@@ -1,0 +1,524 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #087ead;
+    text-decoration: none;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #087ead;
+}
+
+.nav-btn {
+    text-decoration: none;
+    background: #087ead;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+/* Hero Section */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+        url("https://images.unsplash.com/photo-1626621341517-bbf3d9990a23")
+        center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 750px;
+    color: white;
+}
+
+.hero-tag {
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.15;
+    margin: 22px 0;
+}
+
+.hero h1 span {
+    color: #61d5ff;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* Search Bar */
+
+.search-box {
+    display: flex;
+    max-width: 600px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 12px;
+    font-size: 15px;
+}
+
+.search-box button {
+    border: none;
+    background: #087ead;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 6%;
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+
+/* Explore Places Section */
+
+.search-results {
+    padding: 80px 7%;
+    background: #f8fafc;
+}
+
+.search-results h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #172b3a;
+    margin-bottom: 35px;
+}
+
+/* Category Filters */
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 12px 22px;
+    border: 1px solid #dbe4ea;
+    border-radius: 30px;
+    background: white;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #087ead;
+    color: white;
+    border-color: #087ead;
+    transform: translateY(-3px);
+}
+
+/* Destination Cards */
+
+.places-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.place-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e5edf2;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.place-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.place-card h3 {
+    font-size: 21px;
+    color: #172b3a;
+    margin-bottom: 12px;
+}
+
+.place-card span {
+    display: inline-block;
+    background: #e5f5fc;
+    color: #087ead;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.place-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Responsive Cards */
+
+@media (max-width: 900px) {
+    .places-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .search-results {
+        padding: 55px 5%;
+    }
+
+    .search-results h2 {
+        font-size: 28px;
+    }
+
+    .places-container {
+        grid-template-columns: 1fr;
+    }
+
+    .category-filters {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+    }
+}
+
+/* Destination Card Images */
+
+.place-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+
+.explore-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #087ead;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: #05658c;
+    transform: translateY(-2px);
+}
+
+
+/* Destination Details Popup */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    max-width: 850px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 30px;
+    animation: modalOpen 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #222;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #087ead;
+    color: white;
+    transform: rotate(90deg);
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 22px 16px;
+        max-height: 92vh;
+    }
+}
+
+
+/* Premium Destination Popup */
+
+.modal-content {
+    padding: 0;
+    overflow-x: hidden;
+    background: #f8fafc;
+}
+
+.close-modal {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: white;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.destination-hero {
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.destination-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.destination-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 35px;
+    color: white;
+    background: linear-gradient(
+        transparent 15%,
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.destination-tag {
+    background: #087ead;
+    width: fit-content;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.destination-overlay h2 {
+    font-size: 38px;
+    margin-bottom: 7px;
+}
+
+.destination-overlay p {
+    font-size: 15px;
+    color: #e5e7eb;
+}
+
+.destination-info {
+    padding: 30px;
+}
+
+.info-heading > span {
+    color: #087ead;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.info-heading h3 {
+    font-size: 25px;
+    margin: 10px 0;
+    color: #172b3a;
+}
+
+.info-heading p {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.detail-section {
+    background: white;
+    border: 1px solid #e5eaf0;
+    border-radius: 13px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.detail-section h3 {
+    color: #087ead;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.detail-section p,
+.detail-section li {
+    color: #526173;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.detail-section ul {
+    padding-left: 20px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.detail-grid .detail-section {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .destination-hero {
+        height: 230px;
+    }
+
+    .destination-overlay {
+        padding: 20px;
+    }
+
+    .destination-overlay h2 {
+        font-size: 27px;
+    }
+
+    .destination-info {
+        padding: 18px;
+    }
+
+    .info-heading h3 {
+        font-size: 21px;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}

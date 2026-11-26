@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Manali | WanderWay</title>
+    <link rel="stylesheet" href="manali.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <a href="WanderWay/index.html" class="logo">WanderWay</a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#places">Explore Places</a>
+        <a href="#trekking">Trekking</a>
+        <a href="#hidden-gems">Hidden Gems</a>
+      </nav>
+
+      <a href="#explore" class="nav-btn">Start Exploring</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="explore">
+      <div class="hero-content">
+        <span class="hero-tag">THE BEAUTY OF HIMACHAL PRADESH</span>
+
+        <h1>Discover the Magic of <span>Manali</span></h1>
+
+        <p>
+          Explore breathtaking mountains, hidden gems, beautiful valleys and
+          unforgettable adventures.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-box">
+          <input
+            type="text"
+            id="placeSearch"
+            placeholder="Search places, waterfalls, trekking..."
+          />
+
+          <button id="searchButton">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="search-results" id="places">
+      <h2>Explore Places in Manali</h2>
+
+      <!-- Category filters yahan -->
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">
+          All Places
+        </button>
+        <button class="filter-btn" data-category="adventure">Adventure</button>
+        <button class="filter-btn" data-category="waterfall">Waterfalls</button>
+        <button class="filter-btn" data-category="trekking">Trekking</button>
+        <button class="filter-btn" data-category="hidden gem">
+          Hidden Gems
+        </button>
+      </div>
+
+      <div class="places-container" id="placesContainer"></div>
+    </section>
+
+    <!-- Destination Details Popup -->
+    <div class="modal" id="destinationModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+
+        <div id="modalDetails">
+          <!-- Destination details will appear here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="manali.js"></script>
+  </body>
+</html>
