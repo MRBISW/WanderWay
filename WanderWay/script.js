@@ -193,3 +193,7 @@ searchInput.addEventListener("keydown", (event) => {
     filterDestinations();
   }
 });
+
+// Temporarily bypass login and show homepage directly
+document.querySelector(".login-container").style.display = "none";
+homePage.style.display = "block";
