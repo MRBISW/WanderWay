@@ -1,262 +1,320 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanderWay - login-Page</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="login-container">
-      <div class="login-image"></div>
-      <div class="login-form">
-        <!-- login card -->
-        <div class="login-card">
-          <h1>Welcome Back!</h1>
-          <p>Explore the world with WanderWay.</p>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder=" Enter Your Email"
-          />
-          <p id="emailError"></p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover destinations, compare travel options and plan your next journey with WanderWay.">
+  <title>WanderWay | Explore More. Travel Better.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-          <div class="password-box">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter password"
-            />
-            <button type="button" id="togglePassword">Show</button>
-          </div>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#home" class="brand">
+        <span class="brand-icon">✈</span>
+        <span>Wander<span>Way</span></span>
+      </a>
 
-          <p id="passwordError"></p>
-          <div class="login-options">
-            <div>
-              <input type="checkbox" id="checkbox" />
-              <label for="checkbox">Remember me</label>
-            </div>
-            <a href="#" id="forgetpassword">Forget Password</a>
-          </div>
-          <button type="button" id="loginButton">Login</button>
-          <p id="loginMessage"></p>
-          <p>Don't have an account? <a href="#" id="signup">Sign Up</a></p>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#destinations" class="nav-link">Destinations</a>
+        <a href="#offers" class="nav-link">Offers</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="savedButton" aria-label="Saved destinations">♡</button>
+        <button class="login-button" id="loginButton">Login / Sign up</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-tag"><span>✦</span> YOUR NEXT ADVENTURE STARTS HERE</div>
+        <h1>Explore the world.<br><span>Find your way.</span></h1>
+        <p>Discover amazing places, find great travel deals and make every journey unforgettable.</p>
+      </div>
+    </section>
+
+    <!-- BOOKING PANEL -->
+    <section class="booking-section container">
+      <div class="booking-panel">
+        <div class="booking-tabs" role="tablist">
+          <button class="booking-tab active" data-type="flights">✈ Flights</button>
+          <button class="booking-tab" data-type="hotels">⌂ Hotels</button>
+          <button class="booking-tab" data-type="holidays">☀ Holidays</button>
+          <button class="booking-tab" data-type="buses">▰ Buses</button>
+          <button class="booking-tab" data-type="cabs">▱ Cabs</button>
         </div>
-        <div class="signup-card" id="signupCard">
-          <h1>Create Account</h1>
-          <p>Join WanderWay today!</p>
-          <input type="text" id="signupName" placeholder="Enter your name" />
 
-          <input type="email" id="signupEmail" placeholder="Enter your email" />
+        <div class="booking-heading">
+          <div>
+            <h2 id="bookingTitle">Book your flights</h2>
+            <p id="bookingSubtitle">Find the best routes for your next journey.</p>
+          </div>
+          <span class="booking-note">✦ Plan your trip with WanderWay</span>
+        </div>
 
-          <input
-            type="password"
-            id="signupPassword"
-            placeholder="Create password"
-          />
+        <form id="bookingForm" class="booking-form">
+          <div class="field-group">
+            <label for="fromInput" id="fromLabel">FROM</label>
+            <input id="fromInput" type="text" placeholder="Departure city" required>
+          </div>
 
-          <p id="signupMessage"></p>
+          <div class="swap-button-wrap">
+            <button type="button" id="swapButton" class="swap-button" aria-label="Swap locations">⇄</button>
+          </div>
 
-          <button type="button" id="createAccount">Sign Up</button>
+          <div class="field-group">
+            <label for="toInput" id="toLabel">TO</label>
+            <input id="toInput" type="text" placeholder="Destination city" required>
+          </div>
 
-          <p>Already have an account? <a href="#" id="backToLogin">Login</a></p>
+          <div class="field-group">
+            <label for="travelDate" id="dateLabel">TRAVEL DATE</label>
+            <input id="travelDate" type="date" required>
+          </div>
+
+          <div class="field-group guest-field">
+            <label for="travellers">TRAVELLERS</label>
+            <select id="travellers">
+              <option>1 Traveller</option>
+              <option selected>2 Travellers</option>
+              <option>3 Travellers</option>
+              <option>4 Travellers</option>
+              <option>5+ Travellers</option>
+            </select>
+          </div>
+
+          <button type="submit" class="search-button"><span>⌕</span> Search</button>
+        </form>
+        <p class="booking-message" id="bookingMessage" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- QUICK BENEFITS -->
+    <section class="benefits container">
+      <div class="benefit-item"><span>✦</span><div><strong>Easy trip planning</strong><small>Everything in one place</small></div></div>
+      <div class="benefit-item"><span>◎</span><div><strong>Explore worldwide</strong><small>Discover places everywhere</small></div></div>
+      <div class="benefit-item"><span>♡</span><div><strong>Save your favourites</strong><small>Keep trips you love</small></div></div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="section container" id="destinations">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">INSPIRATION FOR YOUR NEXT TRIP</span>
+          <h2>Popular destinations</h2>
+          <p>Places travellers are loving right now.</p>
+        </div>
+        <a href="#worldSearch" class="text-link">Explore worldwide <span>→</span></a>
+      </div>
+
+      <div class="filter-list" id="filterList">
+        <button class="filter-btn active" data-filter="all">All places</button>
+        <button class="filter-btn" data-filter="beach">Beaches</button>
+        <button class="filter-btn" data-filter="mountain">Mountains</button>
+        <button class="filter-btn" data-filter="city">City breaks</button>
+        <button class="filter-btn" data-filter="adventure">Adventure</button>
+      </div>
+
+      <div class="destination-grid" id="destinationGrid">
+        <article class="destination-card" data-category="mountain" data-name="Manali" data-country="India">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=85" alt="Beautiful Manali mountains" loading="lazy">
+            <button class="save-card" aria-label="Save Manali">♡</button>
+            <span class="image-label">MOUNTAIN ESCAPE</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ Himachal Pradesh, India</div>
+            <h3>Manali</h3>
+            <div class="card-bottom"><span>Nature · Adventure</span><a href="Manali.html">Explore →</a></div>
+          </div>
+        </article>
+
+        <article class="destination-card" data-category="beach" data-name="Goa" data-country="India">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85" alt="Goa beach" loading="lazy">
+            <button class="save-card" aria-label="Save Goa">♡</button>
+            <span class="image-label">BEACH GETAWAY</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ Goa, India</div>
+            <h3>Goa</h3>
+            <div class="card-bottom"><span>Beaches · Relaxation</span><a href="#worldSearch" class="explore-search" data-place="Goa">Explore →</a></div>
+          </div>
+        </article>
+
+        <article class="destination-card" data-category="city" data-name="Paris" data-country="France">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=85" alt="Paris city view" loading="lazy">
+            <button class="save-card" aria-label="Save Paris">♡</button>
+            <span class="image-label">CITY ESCAPE</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ France, Europe</div>
+            <h3>Paris</h3>
+            <div class="card-bottom"><span>Culture · Romance</span><a href="#worldSearch" class="explore-search" data-place="Paris">Explore →</a></div>
+          </div>
+        </article>
+
+        <article class="destination-card" data-category="beach" data-name="Bali" data-country="Indonesia">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Bali tropical landscape" loading="lazy">
+            <button class="save-card" aria-label="Save Bali">♡</button>
+            <span class="image-label">TROPICAL PARADISE</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ Indonesia, Asia</div>
+            <h3>Bali</h3>
+            <div class="card-bottom"><span>Beaches · Culture</span><a href="#worldSearch" class="explore-search" data-place="Bali">Explore →</a></div>
+          </div>
+        </article>
+
+        <article class="destination-card" data-category="mountain" data-name="Swiss Alps" data-country="Switzerland">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=85" alt="Swiss Alps mountains" loading="lazy">
+            <button class="save-card" aria-label="Save Swiss Alps">♡</button>
+            <span class="image-label">SCENIC RETREAT</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ Switzerland, Europe</div>
+            <h3>Swiss Alps</h3>
+            <div class="card-bottom"><span>Mountains · Nature</span><a href="#worldSearch" class="explore-search" data-place="Swiss Alps">Explore →</a></div>
+          </div>
+        </article>
+
+        <article class="destination-card" data-category="adventure" data-name="Rishikesh" data-country="India">
+          <div class="destination-image">
+            <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=900&q=85" alt="Rishikesh river and mountains" loading="lazy">
+            <button class="save-card" aria-label="Save Rishikesh">♡</button>
+            <span class="image-label">ADVENTURE TIME</span>
+          </div>
+          <div class="destination-info">
+            <div class="destination-location">⌖ Uttarakhand, India</div>
+            <h3>Rishikesh</h3>
+            <div class="card-bottom"><span>Rafting · Adventure</span><a href="#worldSearch" class="explore-search" data-place="Rishikesh">Explore →</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORLDWIDE SEARCH -->
+    <section class="world-search-section" id="worldSearch">
+      <div class="container world-search-inner">
+        <div class="world-search-copy">
+          <span class="eyebrow">THE WORLD IS YOURS TO EXPLORE</span>
+          <h2>Somewhere new<br>is calling you.</h2>
+          <p>Search cities, regions and countries around the world to start planning your next adventure.</p>
+        </div>
+
+        <form class="world-search-form" id="worldSearchForm">
+          <label for="destinationSearch">Where do you want to go?</label>
+          <div class="world-search-input">
+            <span>⌕</span>
+            <input type="search" id="destinationSearch" placeholder="Try Tokyo, London, Switzerland..." required>
+            <button type="submit">Discover</button>
+          </div>
+          <small>Powered by Open-Meteo location search</small>
+        </form>
+      </div>
+      <div class="container">
+        <div id="apiStatus" class="api-status" aria-live="polite"></div>
+        <div id="apiResults" class="api-result-grid"></div>
+      </div>
+    </section>
+
+    <!-- OFFERS -->
+    <section class="section container" id="offers">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">A LITTLE MORE REASON TO GO</span>
+          <h2>Make your next trip special</h2>
+          <p>Travel inspiration and ideas for every kind of explorer.</p>
         </div>
       </div>
+
+      <div class="offer-grid">
+        <article class="offer-card offer-one">
+          <div><span class="offer-tag">FOR THE DREAMERS</span><h3>Big adventures<br>start with a plan.</h3><p>Find a place that feels like you.</p><a href="#destinations">Find inspiration →</a></div>
+        </article>
+        <article class="offer-card offer-two">
+          <div><span class="offer-tag">YOUR NEXT ESCAPE</span><h3>Take the scenic<br>route.</h3><p>Discover somewhere unforgettable.</p><a href="#worldSearch">Explore places →</a></div>
+        </article>
+      </div>
+      <p class="demo-note">Travel inspiration only. Live prices, availability and booking confirmation are not yet connected.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="container about-inner">
+        <div>
+          <span class="eyebrow">TRAVEL, MADE MORE INSPIRING</span>
+          <h2>More than a destination.<br>It's how you feel there.</h2>
+        </div>
+        <p>WanderWay brings travel inspiration and trip discovery together in one place. From weekend escapes to faraway adventures, find ideas for the journey ahead.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <a href="#home" class="brand footer-brand"><span class="brand-icon">✈</span><span>Wander<span>Way</span></span></a>
+        <p>Explore more. Travel better.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#offers">Offers</a>
+        <a href="#about">About us</a>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> WanderWay. Made for curious travellers.</div>
     </div>
+  </footer>
 
-    <!-- this is my wonderway home page -->
+  <!-- LOGIN MODAL -->
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <a href="#home" class="brand modal-brand"><span class="brand-icon">✈</span><span>Wander<span>Way</span></span></a>
+      <h2 id="authTitle">Welcome back!</h2>
+      <p id="authDescription">Sign in to save your favourite places.</p>
 
-    <div class="home-page" id="homePage">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <a href="#" class="logo">Wander<span>Way.</span></a>
-
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <a href="#destinations" class="explore-btn">Explore Now</a>
-      </nav>
-
-      <!-- Hero Section -->
-      <section class="hero-section" id="home">
-        <div class="hero-content">
-          <p class="hero-tagline">EXPLORE THE INCREDIBLE INDIA</p>
-
-          <h1>
-            Discover the Best
-            <span>Places in India</span>
-          </h1>
-
-          <p class="hero-description">
-            From breathtaking mountains to beautiful beaches, discover India's
-            popular destinations, thrilling adventures and hidden gems.
-          </p>
-
-          <div class="hero-search">
-            <input
-              type="text"
-              id="destination"
-              placeholder="Where do you want to go?"
-            />
-            <button type="button" id="searchButton">Search</button>
-          </div>
+      <form id="authForm">
+        <div class="auth-name hidden" id="nameField">
+          <label for="authName">Your name</label>
+          <input type="text" id="authName" placeholder="Enter your name">
         </div>
-      </section>
-
-      <!-- Destinations Section -->
-      <section class="destinations-section" id="destinations">
-        <div class="section-heading">
-          <p class="section-tagline">EXPLORE INDIA WITH US</p>
-          <h2>Find Your Next <span>Adventure</span></h2>
-          <p>Discover amazing places waiting to be explored.</p>
+        <label for="authEmail">Email address</label>
+        <input type="email" id="authEmail" placeholder="you@example.com" required>
+        <label for="authPassword">Password</label>
+        <div class="password-wrap">
+          <input type="password" id="authPassword" placeholder="Enter password" required minlength="6">
+          <button type="button" id="togglePassword">Show</button>
         </div>
-
-        <!-- Category Filters -->
-        <div class="category-filters">
-          <button class="filter-btn active" data-filter="all">
-            All Places
-          </button>
-          <button class="filter-btn" data-filter="popular">Popular</button>
-          <button class="filter-btn" data-filter="adventure">Adventure</button>
-          <button class="filter-btn" data-filter="trekking">Trekking</button>
-          <button class="filter-btn" data-filter="hidden">Hidden Gems</button>
-        </div>
-
-        <!-- Destination Cards -->
-        <div class="destination-grid">
-          <article class="destination-card" data-category="popular">
-            <img
-              src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d"
-              alt="Kashmir mountains"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Popular</span>
-              <h3>Kashmir</h3>
-              <p>Jammu & Kashmir, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="popular">
-            <img
-              src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2"
-              alt="Goa beach"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Popular</span>
-              <h3>Goa</h3>
-              <p>Goa, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="adventure">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-              alt="Mountain adventure"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Adventure</span>
-              <h3>Manali</h3>
-              <p>Himachal Pradesh, India</p>
-              <a href="../Manali.html">Explore Place</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="trekking">
-            <img
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
-              alt="Mountain trekking"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Trekking</span>
-              <h3>Kedarkantha</h3>
-              <p>Uttarakhand, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="hidden">
-            <img
-              src="https://images.unsplash.com/photo-1500534623283-312aade485b7"
-              alt="Green valley"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Hidden Gem</span>
-              <h3>Ziro Valley</h3>
-              <p>Arunachal Pradesh, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="adventure">
-            <img
-              src="https://images.unsplash.com/photo-1530789253388-582c481c54b0"
-              alt="Mountain travel"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Adventure</span>
-              <h3>Rishikesh</h3>
-              <p>Uttarakhand, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="hidden">
-            <img
-              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
-              alt="Beautiful nature"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Hidden Gem</span>
-              <h3>Tirthan Valley</h3>
-              <p>Himachal Pradesh, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-
-          <article class="destination-card" data-category="trekking">
-            <img
-              src="https://images.unsplash.com/photo-1464278533981-50106e6176b1"
-              alt="Mountain trail"
-            />
-            <div class="destination-info">
-              <span class="destination-type">Trekking</span>
-              <h3>Valley of Flowers</h3>
-              <p>Uttarakhand, India</p>
-              <a href="#">Explore Place ↗</a>
-            </div>
-          </article>
-        </div>
-        <p id="noResults" class="no-results" hidden>
-          No destinations found. Try another search.
-        </p>
-      </section>
-
-      <!-- About Section -->
-      <section class="about-section" id="about">
-        <p class="section-tagline">ABOUT WANDERWAY</p>
-        <h2>Your Journey, Our Passion.</h2>
-        <p>
-          We help you discover India's most beautiful destinations, exciting
-          adventures and hidden places.
-        </p>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer" id="contact">
-        <h2>Wander<span>Way.</span></h2>
-        <p>Discover India. Experience More.</p>
-        <p>© 2026 WanderWay. All rights reserved.</p>
-      </footer>
+        <button type="submit" class="primary-button auth-submit" id="authSubmit">Login</button>
+      </form>
+      <p class="auth-switch" id="authSwitch">New to WanderWay? <button type="button" id="switchAuth">Create an account</button></p>
+      <p class="auth-message" id="authMessage" aria-live="polite"></p>
+      <small class="demo-note">Demo account interface only. Do not enter a real or sensitive password.</small>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
